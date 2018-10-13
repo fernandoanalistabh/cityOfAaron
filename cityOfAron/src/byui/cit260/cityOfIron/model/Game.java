@@ -7,6 +7,7 @@
 package byui.cit260.cityOfIron.model;
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.ArrayList;
 /**
  *
  * @author Andre Pedrosa and Fernando Santos
@@ -14,8 +15,11 @@ import java.util.Objects;
 public class Game implements Serializable{
 
     private Player thePlayer;
+    private ArrayList<ListItem> tools; 
+    private CropData _cropData;
 
     public Game() {
+        setTools(new ArrayList<ListItem>());
     }
 
     public Player getThePlayer() {
@@ -26,6 +30,22 @@ public class Game implements Serializable{
         this.thePlayer = _thePlayer;
     }
 
+    public ArrayList<ListItem> getTools() {
+        return tools;
+    }
+
+    public void setTools(ArrayList<ListItem> tools) {
+        this.tools = tools;
+    }
+
+    public CropData getCropData() {
+        return _cropData;
+    }
+
+    public void setCropData(CropData _cropData) {
+        this._cropData = _cropData;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 5;
