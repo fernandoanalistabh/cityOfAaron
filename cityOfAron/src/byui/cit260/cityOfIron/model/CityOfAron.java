@@ -23,6 +23,12 @@ public class CityOfAron {
         System.out.println(newPlayer.toString());
         System.out.println(TeamMember.Andre.getName());
         System.out.println(TeamMember.Andre.getTitle());
+        
+        //Fernando's Tests
+        ListItem item = new ListItem();
+        item.setName("Sword");
+        item.setNumber(23);
+        System.out.println(item.toString());
     }
     
 }
