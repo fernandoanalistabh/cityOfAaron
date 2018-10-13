@@ -6,12 +6,13 @@
 package byui.cit260.cityOfIron.model;
 
 import java.util.Objects;
+import java.io.Serializable;
 
 /**
  *
  * @author Fernando
  */
-public class ListItem {
+public class ListItem implements Serializable{
     private String name;
     private int number;
     private Game _game;

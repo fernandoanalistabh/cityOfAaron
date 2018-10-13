@@ -6,12 +6,12 @@
 package byui.cit260.cityOfIron.model;
 
 import java.util.Objects;
-
+import java.io.Serializable;
 /**
  *
  * @author Fernando
  */
-public class CropData {
+public class CropData implements Serializable{
     private int year;
     private int population;
     private int acresOwned;
