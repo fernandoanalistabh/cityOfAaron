@@ -6,7 +6,6 @@
 */
 package byui.cit260.cityOfIron.model;
 
-import java.util.Objects;
 import java.io.Serializable;
 import java.util.Arrays;
 
