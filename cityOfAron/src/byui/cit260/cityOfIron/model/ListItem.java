@@ -1,8 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* The ListItem() class file for the cityOfAaron project
+* CIT-260
+* Fall 2018
+* Team members: Andre Matheus, Fernando Santos, Vinicius
+*/
 package byui.cit260.cityOfIron.model;
 
 import java.util.Objects;
@@ -15,7 +16,7 @@ import java.io.Serializable;
 public class ListItem implements Serializable{
     private String name;
     private int number;
-    private Game _game;
+    private Game game;
 
     public ListItem() {
     }
@@ -37,11 +38,11 @@ public class ListItem implements Serializable{
     }
 
     public Game getGame() {
-        return _game;
+        return game;
     }
 
     public void setGame(Game _game) {
-        this._game = _game;
+        this.game = _game;
     }
 
     @Override
@@ -49,7 +50,7 @@ public class ListItem implements Serializable{
         int hash = 5;
         hash = 67 * hash + Objects.hashCode(this.name);
         hash = 67 * hash + this.number;
-        hash = 67 * hash + Objects.hashCode(this._game);
+        hash = 67 * hash + Objects.hashCode(this.game);
         return hash;
     }
 
@@ -71,7 +72,7 @@ public class ListItem implements Serializable{
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
-        if (!Objects.equals(this._game, other._game)) {
+        if (!Objects.equals(this.game, other.game)) {
             return false;
         }
         return true;
@@ -79,6 +80,6 @@ public class ListItem implements Serializable{
 
     @Override
     public String toString() {
-        return "ListItem{" + "name=" + name + ", number=" + number + ", _game=" + _game + '}';
+        return "ListItem{" + "name=" + name + ", number=" + number + ", game=" + game + '}';
     }
 }

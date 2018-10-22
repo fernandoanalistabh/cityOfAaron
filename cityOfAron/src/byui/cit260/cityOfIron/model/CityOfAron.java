@@ -29,6 +29,17 @@ public class CityOfAron {
         item.setName("Sword");
         item.setNumber(23);
         System.out.println(item.toString());
+        
+        //André's tests
+        Location saara = new Location();
+        saara.setDescription("Deserto");
+        saara.setSymbol("D");
+        System.out.println(saara.toString());
+        Map des_saara = new Map();
+        des_saara.setColCont(50);
+        des_saara.setRowCount(55);
+        
+        System.out.println(des_saara.toString());
     }
     
 }
