@@ -4,7 +4,7 @@
 * Fall 2018
 * Team members: Andre Matheus, Fernando Santos, Vinicius
 */
-package byui.cit260.cityOfIron.model;
+package byui.cit260.cityOfAron.model;
 
 import java.util.Objects;
 import java.io.Serializable;

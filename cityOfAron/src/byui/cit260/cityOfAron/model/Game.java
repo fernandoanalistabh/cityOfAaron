@@ -14,12 +14,25 @@ import java.util.ArrayList;
  */
 public class Game implements Serializable{
 
+    private Map theMap;
     private Player thePlayer;
-    private ArrayList<ListItem> tools; 
-    private CropData _cropData;
-
+    private CropData cropData;
+    private ArrayList<ListItem> animals;
+    private ArrayList<ListItem> tools;
+    private ArrayList<ListItem> provisions;
+    
     public Game() {
+        setAnimals(new ArrayList<ListItem>());
         setTools(new ArrayList<ListItem>());
+        setProvisions(new ArrayList<ListItem>());    
+    }    
+
+    public Map getTheMap() {
+        return theMap;
+    }
+
+    public void setTheMap(Map _theMap) {
+        this.theMap = _theMap;
     }
 
     public Player getThePlayer() {
@@ -30,26 +43,47 @@ public class Game implements Serializable{
         this.thePlayer = _thePlayer;
     }
 
-    public ArrayList<ListItem> getTools() {
-        return tools;
-    }
-
-    public void setTools(ArrayList<ListItem> tools) {
-        this.tools = tools;
-    }
-
     public CropData getCropData() {
-        return _cropData;
+        return cropData;
     }
 
     public void setCropData(CropData _cropData) {
-        this._cropData = _cropData;
+        this.cropData = _cropData;
+    }
+
+    public ArrayList<ListItem> getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(ArrayList<ListItem> _animals) {
+        this.animals = _animals;
     }
     
+     public ArrayList<ListItem> getTools() {
+        return tools;
+    }
+
+    public void setTools(ArrayList<ListItem> _tools) {
+        this.tools = _tools;
+    }
+
+    public ArrayList<ListItem> getProvisions() {
+        return provisions;
+    }
+
+    public void setProvisions(ArrayList<ListItem> _provisions) {
+        this.provisions = _provisions;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 43 * hash + Objects.hashCode(this.thePlayer);
+        int hash = 3;
+        hash = 83 * hash + Objects.hashCode(this.theMap);
+        hash = 83 * hash + Objects.hashCode(this.thePlayer);
+        hash = 83 * hash + Objects.hashCode(this.cropData);
+        hash = 83 * hash + Objects.hashCode(this.animals);
+        hash = 83 * hash + Objects.hashCode(this.tools);
+        hash = 83 * hash + Objects.hashCode(this.provisions);
         return hash;
     }
 
@@ -65,7 +99,22 @@ public class Game implements Serializable{
             return false;
         }
         final Game other = (Game) obj;
+        if (!Objects.equals(this.theMap, other.theMap)) {
+            return false;
+        }
         if (!Objects.equals(this.thePlayer, other.thePlayer)) {
+            return false;
+        }
+        if (!Objects.equals(this.cropData, other.cropData)) {
+            return false;
+        }
+        if (!Objects.equals(this.animals, other.animals)) {
+            return false;
+        }
+        if (!Objects.equals(this.tools, other.tools)) {
+            return false;
+        }
+        if (!Objects.equals(this.provisions, other.provisions)) {
             return false;
         }
         return true;
@@ -73,9 +122,7 @@ public class Game implements Serializable{
 
     @Override
     public String toString() {
-        return "Game{" + "thePlayer=" + thePlayer + '}';
+        return "Game{" + "theMap=" + theMap + ", thePlayer=" + thePlayer + ", cropData=" + cropData + ", animals=" + animals + ", tools=" + tools + ", provisions=" + provisions + '}';
     }
 
-    
-    
 }

@@ -1,8 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* The CropData() class file for the cityOfAaron project
+* CIT-260
+* Fall 2018
+* Team members: Andre Matheus, Fernando Santos, Vinicius
+*/
 package byui.cit260.cityOfAron.model;
 
 import java.util.Objects;
