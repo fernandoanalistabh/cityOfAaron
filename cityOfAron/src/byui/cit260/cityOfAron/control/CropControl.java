@@ -12,7 +12,7 @@ public class CropControl
     //constants
     private static final int LAND_BASE = 17;
     private static final int LAND_RANGE = 10;
-    
+    private static final int ACRES_PER_BUSHEL = 2;
     // random number generator
     private static Random random = new Random();
 
@@ -103,4 +103,43 @@ public class CropControl
         cropData.setOffering(offeringPercentage);
         return cropData.getOffering();
     }
+    
+    /**
+    * The plantCrops method
+    * Purpose: To plant wheat
+    * @param the number of acres to plant
+    * @param a reference to a CropData object
+    * @return the total number of acres planted
+    * Pre-conditions: acres to plant must be positive
+    * and <= the number of acres free.
+    * The cost in bushels to plant must be <= total bushels owned.
+    */
+    
+    public static int plantCrops(int acresToPlant, CropData cropData) { 
+        
+        int wheatInStore = cropData.getWheatInStore();
+        int acresOwned = cropData.getAcresOwned();
+        int acresPlanted = cropData.getAcresPlanted();
+        
+        //if acresToPLant/ACRES_PER_BUSHEL > wheatInStore, return -1
+        //if acresToPlant > acresOwned - acresPlanted, return -1
+        //if acresToPlant < 0, return -1
+        if (acresToPlant/ACRES_PER_BUSHEL>wheatInStore ||
+            acresToPlant > acresOwned - acresPlanted ||
+            acresToPlant < 0){
+            return -1;
+        }
+        
+        //wheatInStore = wheatInStore - (acresToPlant/ACRES_PER_BUSHEL)
+        wheatInStore -= (acresToPlant/ACRES_PER_BUSHEL);
+        
+        //acresPlanted = acresPlanted + acresToPlant
+        acresPlanted += acresToPlant;
+        
+        //return acresPlanted
+        return acresPlanted;
+
+    }
+    
+    
 }

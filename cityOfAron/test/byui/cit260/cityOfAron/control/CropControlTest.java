@@ -182,4 +182,105 @@ public class CropControlTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+    
+    @Test
+    public void testplantCrops1() {
+        System.out.println("plantCrops  - test case 1");
+        CropData cropData = new CropData();
+        int acresToPlant = 10;
+        cropData.setWheatInStore(5000);
+        cropData.setAcresOwned(500);
+        cropData.setAcresPlanted(400);
+        int expResult = 410;
+        int result = CropControl.plantCrops(acresToPlant, cropData);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    @Test
+    public void testplantCrops2() {
+        System.out.println("plantCrops  - test case 2");
+        CropData cropData = new CropData();
+        int acresToPlant = 60;
+        cropData.setWheatInStore(20);
+        cropData.setAcresOwned(500);
+        cropData.setAcresPlanted(400);
+        int expResult = -1;
+        int result = CropControl.plantCrops(acresToPlant, cropData);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    @Test
+    public void testplantCrops3() {
+        System.out.println("plantCrops  - test case 3");
+        CropData cropData = new CropData();
+        int acresToPlant = 150;
+        cropData.setWheatInStore(5000);
+        cropData.setAcresOwned(500);
+        cropData.setAcresPlanted(400);
+        int expResult = -1;
+        int result = CropControl.plantCrops(acresToPlant, cropData);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    @Test
+    public void testplantCrops4() {
+        System.out.println("plantCrops  - test case 4");
+        CropData cropData = new CropData();
+        int acresToPlant = -25;
+        cropData.setWheatInStore(5000);
+        cropData.setAcresOwned(500);
+        cropData.setAcresPlanted(400);
+        int expResult = -1;
+        int result = CropControl.plantCrops(acresToPlant, cropData);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    @Test
+    public void testplantCrops5() {
+        System.out.println("plantCrops  - test case 5");
+        CropData cropData = new CropData();
+        int acresToPlant = 0;
+        cropData.setWheatInStore(5000);
+        cropData.setAcresOwned(500);
+        cropData.setAcresPlanted(400);
+        int expResult = 400;
+        int result = CropControl.plantCrops(acresToPlant, cropData);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    @Test
+    public void testplantCrops6() {
+        System.out.println("plantCrops  - test case 6");
+        CropData cropData = new CropData();
+        int acresToPlant = 100;
+        cropData.setWheatInStore(5000);
+        cropData.setAcresOwned(500);
+        cropData.setAcresPlanted(400);
+        int expResult = 500;
+        int result = CropControl.plantCrops(acresToPlant, cropData);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    @Test
+    public void testplantCrops7() {
+        System.out.println("plantCrops  - test case 7");
+        CropData cropData = new CropData();
+        int acresToPlant = 60;
+        cropData.setWheatInStore(30);
+        cropData.setAcresOwned(500);
+        cropData.setAcresPlanted(400);
+        int expResult = 460;
+        int result = CropControl.plantCrops(acresToPlant, cropData);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    
 }
