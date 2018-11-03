@@ -25,7 +25,8 @@ public class CropControl
     * Pre-conditions: acres to sell must be positive
     * and <= acresOwned
     */
-    public static int sellLand(int landPrice, int acresToSell, CropData cropData){
+    public static int sellLand(int landPrice, int acresToSell, CropData cropData)
+    {
             //if acresToSell < 0, return -1
         if (acresToSell < 0)
             return -1;
@@ -66,7 +67,8 @@ public class CropControl
     * Pre-conditions: the price acres to buy must be positive
     * and <= the number of bushels of wheat owned
     */
-    public static int buyLand(int landPrice, int acresToBuy, CropData cropData){
+    public static int buyLand(int landPrice, int acresToBuy, CropData cropData)
+    {
         int acresOwned = cropData.getAcresOwned();
         int wheatInStore = cropData.getWheatInStore();
         //if acresToBuy < 0, return -1
@@ -94,7 +96,8 @@ public class CropControl
     * Pre-conditions: the percentage of offering must be positive
     * and <= than 100
     */
-    public int setOffering(int offeringPercentage, CropData cropData){
+    public int setOffering(int offeringPercentage, CropData cropData)
+    {
         //if offeringPercentage < 0 or offeringPercentage > 100, return -1
         //offering = offeringPercentage
         //return offering
@@ -114,9 +117,8 @@ public class CropControl
     * and <= the number of acres free.
     * The cost in bushels to plant must be <= total bushels owned.
     */
-    
-    public static int plantCrops(int acresToPlant, CropData cropData) { 
-        
+    public static int plantCrops(int acresToPlant, CropData cropData)
+    { 
         int wheatInStore = cropData.getWheatInStore();
         int acresOwned = cropData.getAcresOwned();
         int acresPlanted = cropData.getAcresPlanted();
