@@ -59,7 +59,7 @@ public class Game implements Serializable{
         this.animals = _animals;
     }
     
-     public ArrayList<ListItem> getTools() {
+    public ArrayList<ListItem> getTools() {
         return tools;
     }
 
