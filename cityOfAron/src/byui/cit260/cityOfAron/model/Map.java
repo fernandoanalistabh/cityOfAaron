@@ -83,6 +83,6 @@ public class Map implements Serializable{
         return "Map{" + "rowCount=" + rowCount + ", colCont=" + colCont + ", locations=" + locations + '}';
     }
 
-    
-    
+
+
 }
