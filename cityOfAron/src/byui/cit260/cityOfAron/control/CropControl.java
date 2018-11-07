@@ -53,8 +53,8 @@ public class CropControl
     */
     public static int calcLandCost()
     {
-    int landCost = random.nextInt(LAND_RANGE) + LAND_BASE;
-    return landCost;
+        int landCost = random.nextInt(LAND_RANGE) + LAND_BASE;
+        return landCost;
     } 
     
     /**
