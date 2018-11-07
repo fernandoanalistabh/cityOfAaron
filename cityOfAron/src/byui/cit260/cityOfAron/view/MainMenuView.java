@@ -137,6 +137,9 @@ public class MainMenuView {
         // Display a welcome message
         System.out.println("\nWelcome " + name + " have fun!!!");
         // Display the Game menu
+        
+        GameMenuView gmv = new GameMenuView();
+        gmv.displayMenuView();
     }
     public void startSavedGame()
     {
