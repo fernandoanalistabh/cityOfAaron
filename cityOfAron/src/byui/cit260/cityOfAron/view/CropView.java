@@ -18,6 +18,23 @@ public class CropView {
     public CropView() {
     }
     
+    
+    /**
+    * The runCropsView method()
+    * Purpose: runs the Hamurabi game
+    * Parameters: none
+    * Returns: none
+    */
+    public static void runCropsView()
+    {
+        // call the buyLandView( ) method
+        buyLandView();
+        sellLandView();
+        feedPeopleView();
+        plantCropView();
+        displayCropsReportView();
+        
+    }
   
     /**
     * The buyLandView method
@@ -43,16 +60,42 @@ public class CropView {
     }
     
     /**
-    * The runCropsView method()
-    * Purpose: runs the Hamurabi game
+    * The sellLandView method
+    * Purpose: interface with the user input for selling land
     * Parameters: none
     * Returns: none
     */
-    public static void runCropsView()
-    {
-        // call the buyLandView( ) method
-        buyLandView( );
-        // add calls to the other crop view methods
-        // as they are written
+    public static void sellLandView(){
+        
+    }
+    
+    /**
+    * The feedPeopleView LandView method
+    * Purpose: interface with the user input for feeding people
+    * Parameters: none
+    * Returns: none
+    */
+    public static void feedPeopleView(){
+        
+    }
+    
+    /**
+    * The plantCropView method
+    * Purpose: interface with the user input for plating Crop
+    * Parameters: none
+    * Returns: none
+    */
+    public static void plantCropView(){
+        
+    }
+    
+    /**
+    * The displayCropsReportView method
+    * Purpose: interface with the user input for displaying Crop's Report
+    * Parameters: none
+    * Returns: none
+    */
+    public static void displayCropsReportView(){
+        
     }
 }
