@@ -33,7 +33,6 @@ public class CropView {
         feedPeopleView();
         plantCropView();
         displayCropsReportView();
-        
     }
   
     /**
@@ -47,7 +46,7 @@ public class CropView {
         // Get the cost of land for this round.
         int price = CropControl.calcLandCost();
         // Prompt the user to enter the number of acres to buy
-        System.out.format("Land is selling for %d bushels per acre.%n",price);
+        System.out.format("Land is selling for %d bushels per acre.%n", price);
         System.out.print("How many acres of land do you wish to buy? ");
         // Get the user’s input and save it.
         int toBuy;
@@ -66,7 +65,19 @@ public class CropView {
     * Returns: none
     */
     public static void sellLandView(){
-        
+        // Get the cost of land for this round.
+        int price = CropControl.calcLandCost();
+        // Prompt the user to enter the number of acres to sell
+        System.out.format("Land is selling for %d bushels per acre.%n", price);
+        System.out.print("How many acres of land do you wish to sell? ");
+        // Get the user’s input and save it.
+        int toSell;
+        toSell = keyboard.nextInt();
+        // Call the sellLand( ) method in the control layer to sell land
+        // public static int sellLand(int landPrice, int acresToSell, CropData cropData)
+        CropControl.sellLand(price, toSell, cropData);
+        // output how much land we now own
+        System.out.format("You now own %d acres of land. ", cropData.getAcresOwned());
     }
     
     /**
@@ -76,17 +87,40 @@ public class CropView {
     * Returns: none
     */
     public static void feedPeopleView(){
-        
+        // Prompt the user to enter the number
+        System.out.print("How many bushels of grain do you want to give to the people?");
+        // Get the user’s input and save it.
+        int bushels;
+        bushels = keyboard.nextInt();
+        // Call the feedPeople( ) method in the control layer to feed people
+        // public static int feedPeople(int bushels, CropData cropData){
+        int wheatLeft = CropControl.feedPeople(bushels, cropData);
+        //Display the amount of wheat you have left.
+        System.out.format("You now own %d wheat in store. ", wheatLeft);
     }
     
     /**
     * The plantCropView method
-    * Purpose: interface with the user input for plating Crop
+    * Purpose: interface with the user input Crops to plant
     * Parameters: none
     * Returns: none
     */
     public static void plantCropView(){
-        
+        // Prompt the user to enter the number of acres of land to plant
+        System.out.print("“How many acres of land do you want to plant?");
+        // Get the user’s input and save it.
+        int landToPlant;
+        landToPlant = keyboard.nextInt();
+        // Call the plantCrops( ) method in the control layer to sell land
+        //public static int plantCrops(int acresToPlant, CropData cropData)
+        int cropsPlanted = CropControl.plantCrops(landToPlant, cropData);
+        if (cropsPlanted!=-1){
+            // output how many crops is planted
+            System.out.format("You now own %d acres of land. ", cropData.getAcresOwned());
+        }
+        else{
+            //acresToPlant/ACRES_PER_BUSHEL>wheatInStore ||acresToPlant > acresOwned - acresPlanted || acresToPlant < 0){
+        }
     }
     
     /**

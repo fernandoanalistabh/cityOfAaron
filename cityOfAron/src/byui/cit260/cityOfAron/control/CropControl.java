@@ -140,8 +140,25 @@ public class CropControl
         
         //return acresPlanted
         return acresPlanted;
-
     }
     
-    
+    /**
+    * The feedPeople method
+    * Purpose: feed people with crops
+    * @param the number of bushels to feed people
+    * @param the reference to a CropData object
+    * @ return the number of wheat left
+    * Pre-conditions: the number of bushels to feed people must be positive
+    * and < wheatInStore
+    */
+    public static int feedPeople(int bushels, CropData cropData){
+        int wheatInStore = cropData.getWheatInStore();
+        if (bushels<0 || bushels>wheatInStore)
+            return -1;
+        else{
+            wheatInStore-=bushels;
+            cropData.setWheatForPeople(bushels);
+        }
+        return wheatInStore;
+    }
 }
