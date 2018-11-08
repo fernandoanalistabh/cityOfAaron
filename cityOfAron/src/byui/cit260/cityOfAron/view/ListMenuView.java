@@ -21,17 +21,17 @@ public class ListMenuView {
     public ListMenuView() 
     {
         this.listMenu = "\n"+
-                        "**********************************\n" +
-                        "* CITY OF AARON: HELP MENU *\n" +
-                        "**********************************\n" +
+                        "****************************\n" +
+                        "* CITY OF AARON: LIST MENU *\n" +
+                        "****************************\n" +
                         "1 - List or view the animals in the storehouse.\n"+
                         "2 - List or view the tools in the storehouse.\n"+
                         "3 - List or view the provisions in the storehouse.\n"+
                         "4 - List or view the authors of this game.\n"+
-                        "5 - Return"; //This last option don't show in the
-                                      //requirements document, but I though it 
-                                      //would be more consistent to add it
-                                      //once the other menus have.
+                        "5 - Return\n"; //This last option don't show in the
+                                        //requirements document, but I though it 
+                                        //would be more consistent to add it
+                                        //once the other menus have.
         this.max = 5;
     }
 
@@ -90,7 +90,7 @@ public void displayMenuView()
                 listTeam();
                 break;
             case 5:// if the option is 5, display a goodbye message
-                System.out.println("Returning to game menu");
+                System.out.println("\nReturning to game menu");
                 return;
         }
     }
@@ -98,26 +98,26 @@ public void displayMenuView()
 //    + listAnimals(): void
     public void listAnimals()
     {
-        System.out.println("The animals you have are:...");
+        System.out.println("\nThe animals you have are:...");
 
     }
     
 //    + listTools(): void
     public void listTools()
     {
-        System.out.println("The tools you have are:...");
+        System.out.println("\nThe tools you have are:...");
     }
     
 //    + listProvisions(): void
     public void listProvisions()
     {
-        System.out.println("The provisions you have are:...");
+        System.out.println("\nThe provisions you have are:...");
     }
     
 //    + listTeam(): void  
     public void listTeam()
     {
-        System.out.println("The members in your team are:...");
+        System.out.println("\nThe members in your team are:...");
     }
    
 }

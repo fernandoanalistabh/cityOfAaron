@@ -10,7 +10,7 @@ import java.util.Scanner;
 import byui.cit260.cityOfAron.model.CityOfAron;
 
 /**
- * @author Andre
+ * @author Andre 
  */
 public class MainMenuView {
     
@@ -21,9 +21,9 @@ public class MainMenuView {
     public MainMenuView() 
     {
         theMenu = "\n"+
-                  "**********************************\n" +
+                  "*********************************\n" +
                   "* CITY OF AARON: MAIN GAME MENU *\n" +
-                  "**********************************\n" +
+                  "*********************************\n" +
                   " 1 - Start new game\n" +
                   " 2 - Get and start a saved game\n" +
                   " 3 - Get help on playing the game\n" +
@@ -105,7 +105,7 @@ public class MainMenuView {
                 displaySaveGameView();
                 break;
             case 5:// if the option is 5, display a goodbye message
-                System.out.println("Thanks for playing ... goodbye.");
+                System.out.println("\nThanks for playing ... goodbye.");
         }
     }
     
@@ -142,18 +142,18 @@ public class MainMenuView {
     }
     public void startSavedGame()
     {
-        System.out.println("Start saved game option selected.");
+        System.out.println("\nStart saved game option selected.");
     }
     public void displayHelpMenuView()
     {
-        System.out.println("Help menu view option selected./n");//is this line 
+        System.out.println("\nHelp menu view option selected.");//is this line 
                                                                 //still necessary?
         HelpMenuView hmv = new HelpMenuView();
         hmv.displayMenuView();
     }
     public void displaySaveGameView()
     {
-        System.out.println("Save Game view option selected.");
+        System.out.println("\nSave Game view option selected.");
     }
 
     

@@ -14,9 +14,9 @@ public class GameMenuView {
        
     public GameMenuView() {
         gameMenu = "\n"+
-                  "**********************************\n" +
+                  "********************************\n" +
                   "* CITY OF AARON: THE GAME MENU *\n" +
-                  "**********************************\n" +
+                  "********************************\n" +
                   " 1 – View the map\n" +
                   " 2 – View/Print a list\n" +
                   " 3 – Move to a new location\n" +

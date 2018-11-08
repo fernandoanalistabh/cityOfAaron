@@ -20,15 +20,15 @@ public class HelpMenuView {
     public HelpMenuView() 
     {
         this.helpMenu = "\n"+
-                        "**********************************\n" +
+                        "****************************\n" +
                         "* CITY OF AARON: HELP MENU *\n" +
-                        "**********************************\n" +
+                        "****************************\n" +
                         "1 – What are the goals of the game?\n" +
                         "2 – Where is the city of Aaron?\n" +
                         "3 – How do I view the map?\n" +
                         "4 – How do I move to another location?\n" +
                         "5 – How do I display a list of animals, provisions and tools in the city storehouse?\n" +
-                        "6 – Back to the Main Menu.";
+                        "6 – Back to the Main Menu.\n";
         this.max = 6;
     }
 
@@ -90,7 +90,7 @@ public void displayMenuView()
                 viewListHelp();
                 break;
             case 6:// if the option is 5, return to main menu
-                System.out.println("Returning to main menu");
+                System.out.println("\nReturning to main menu");
                 return;
         }
     }
@@ -98,7 +98,7 @@ public void displayMenuView()
 //    + viewGoals(): void
     public void viewGoals()
     {
-        System.out.println("The goals of the game are:...");
+        System.out.println("\nThe goals of the game are:...");
 
     }
     
@@ -108,25 +108,25 @@ public void displayMenuView()
                                    //the City of Aaron in the requirements 
                                    //document so I created this one. 
     {
-        System.out.println("The city of Aaron is...");
+        System.out.println("\nThe city of Aaron is...");
     }
     
 //    + viewMapHelp(): void
     public void viewMapHelp()
     {
-        System.out.println("To view the map you...");
+        System.out.println("\nTo view the map you...");
     }
     
 //    + viewMoveHelp(): void
     public void viewMoveHelp()
     {
-        System.out.println("To move you...");
+        System.out.println("\nTo move you...");
     }
     
 //    + viewListHelp(): void  
     public void viewListHelp()
     {
-        System.out.println("To display the...");
+        System.out.println("\nTo display the...");
     }
        
 }
