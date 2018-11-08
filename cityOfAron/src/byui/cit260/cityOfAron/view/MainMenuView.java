@@ -137,7 +137,6 @@ public class MainMenuView {
         // Display a welcome message
         System.out.println("\nWelcome " + name + " have fun!!!");
         // Display the Game menu
-        
         GameMenuView gmv = new GameMenuView();
         gmv.displayMenuView();
     }
@@ -147,7 +146,10 @@ public class MainMenuView {
     }
     public void displayHelpMenuView()
     {
-        System.out.println("Help menu view option selected.");
+        System.out.println("Help menu view option selected./n");//is this line 
+                                                                //still necessary?
+        HelpMenuView hmv = new HelpMenuView();
+        hmv.displayMenuView();
     }
     public void displaySaveGameView()
     {

@@ -131,7 +131,8 @@ public class GameMenuView {
     }
     
     void viewList(){
-        
+        ListMenuView lmv = new ListMenuView();
+        lmv.displayMenuView();                 
     }
     
     void moveToNewLocation(){
