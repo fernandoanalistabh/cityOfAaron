@@ -30,7 +30,7 @@ public class CropControlTest {
         int acresToBuy = 10;
         int expResult = 3010;
         int result = CropControl.buyLand(landPrice, acresToBuy, cropData);
-        System.out.println("Resultado" + result);
+        System.out.println("Resultado " + result);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -46,7 +46,7 @@ public class CropControlTest {
         int acresToBuy = -10;
         int expResult = -1;
         int result = CropControl.buyLand(landPrice, acresToBuy, cropData);
-        System.out.println("Resultado" + result);
+        System.out.println("Resultado " + result);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -62,7 +62,7 @@ public class CropControlTest {
         int acresToBuy = 10;
         int expResult = -1;
         int result = CropControl.buyLand(landPrice, acresToBuy, cropData);
-        System.out.println("Resultado" + result);
+        System.out.println("Resultado " + result);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -78,7 +78,7 @@ public class CropControlTest {
         int acresToBuy = 10;
         int expResult = 3010;
         int result = CropControl.buyLand(landPrice, acresToBuy, cropData);
-        System.out.println("Resultado" + result);
+        System.out.println("Resultado " + result);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -94,7 +94,7 @@ public class CropControlTest {
         int acresToBuy = 0;
         int expResult = 3000;
         int result = CropControl.buyLand(landPrice, acresToBuy, cropData);
-        System.out.println("Resultado" + result);
+        System.out.println("Resultado " + result);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
