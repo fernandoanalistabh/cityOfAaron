@@ -99,7 +99,7 @@ public class MainMenuView extends MenuView{
         System.out.println("\nHelp menu view option selected.");//is this line 
                                                                 //still necessary?
         HelpMenuView hmv = new HelpMenuView();
-        hmv.displayMenuView();
+        hmv.displayMenu();
     }
     public void displaySaveGameView()
     {

@@ -131,14 +131,14 @@ public class CropView {
     */
     public static void displayCropsReportView(){
         // Display a report about the data
-        System.out.println( "Year: "+cropData.getYear()+"/n"+
-                            "People who starved: "+cropData.getNumStarved()+"/n"+
-                            "People who came to the city: "+cropData.getNewPeople()+"/n"+
-                            "Current population: "+cropData.getPopulation()+"/n"+
-                            "Acres owned: "+cropData.getAcresOwned()+"/n"+
-                            "Bushels of wheat per acre: "+cropData.getCropYield()+"/n"+
-                            "Bushels of wheat paid in offerings: "+cropData.getOfferingsBushels()+"/n"+
-                            "Bushels of wheat eaten by rats: "+cropData.getEatenByRats()+"/n"+
-                            "Bushels of wheat in store: "+cropData.getWheatInStore()+"/n");
+        System.out.println( "Year: "+cropData.getYear()+"\n"+
+                            "People who starved: "+cropData.getNumStarved()+"\n"+
+                            "People who came to the city: "+cropData.getNewPeople()+"\n"+
+                            "Current population: "+cropData.getPopulation()+"\n"+
+                            "Acres owned: "+cropData.getAcresOwned()+"\n"+
+                            "Bushels of wheat per acre: "+cropData.getCropYield()+"\n"+
+                            "Bushels of wheat paid in offerings: "+cropData.getOfferingsBushels()+"\n"+
+                            "Bushels of wheat eaten by rats: "+cropData.getEatenByRats()+"\n"+
+                            "Bushels of wheat in store: "+cropData.getWheatInStore()+"\n");
     }
 }

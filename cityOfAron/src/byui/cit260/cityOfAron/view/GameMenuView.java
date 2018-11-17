@@ -140,6 +140,7 @@ public class GameMenuView {
     }
     
     void manageCrops(){
-        
+        CropView.runCropsView(); //O professor descontou pontos do meu L08 individual
+                                 //assgniment por não chamar o runCropsView aqui (André)
     }
 }
