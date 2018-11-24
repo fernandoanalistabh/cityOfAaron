@@ -6,6 +6,8 @@
 */
 package byui.cit260.cityOfAron.view;
 import byui.cit260.cityOfAron.model.Game;
+import byui.cit260.cityOfAron.model.ListItem;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -108,10 +110,21 @@ public void displayMenuView()
         System.out.println("\nThe tools you have are:...");
     }
     
-//    + listProvisions(): void
+//    method to list provitions --L10
     public void listProvisions()
-    {
-        System.out.println("\nThe provisions you have are:...");
+    {   
+        // Obs. I turned some variable/method in Game class static so I could
+        //refer to them here without being instatiated yet
+        ArrayList<ListItem> provList = Game.getProvisions();
+        System.out.println("\nProvitions in City of Aaron:");
+        for (ListItem i : provList){ // Iterate through each item in 
+                                     //the provisions list
+            System.out.println(
+                    // The String.format() method aligns the text, for more info
+                    //see https://dzone.com/articles/java-string-format-examples
+                    String.format("%-17s", i.getName()) + i.getNumber()
+            );
+        }
     }
     
 //    + listTeam(): void  

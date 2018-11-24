@@ -88,7 +88,7 @@ public class MainMenuView extends MenuView{
         System.out.println("\nWelcome " + name + " have fun!!!");
         // Display the Game menu
         GameMenuView gmv = new GameMenuView();
-        gmv.displayMenuView();
+        gmv.displayMenu();
     }
     public void startSavedGame()
     {

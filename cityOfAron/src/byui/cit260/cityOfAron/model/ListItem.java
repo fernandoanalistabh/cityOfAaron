@@ -18,7 +18,9 @@ public class ListItem implements Serializable{
     private int number;
     private Game game;
 
-    public ListItem() {
+    public ListItem(String name, int number) {
+        this.name = name;
+        this.number = number;
     }
 
     public String getName() {

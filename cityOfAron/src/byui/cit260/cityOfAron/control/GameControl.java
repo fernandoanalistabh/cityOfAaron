@@ -8,7 +8,7 @@
 // ==============================================================
 package byui.cit260.cityOfAron.control;
 import byui.cit260.cityOfAron.model.*;
-import byui.cit260.cityOfAron.model.CityOfAron;
+import java.util.*;
 /**
  * @author Andre
  */
@@ -41,5 +41,23 @@ public class GameControl {
         // Save a reference to the Game object in the static variable
         // declared in the CityOfAaron class.
         CityOfAron.setTheGame(game);
+        // Call the method to save a provitions list in the Game Object --L10
+        createProvisionsList();
+    }
+    
+    // Create a list of provisions itens and assign to the Game object --L10
+    public static void createProvisionsList()
+    {
+        ArrayList<ListItem> provisions = new ArrayList<>();
+        provisions.add(new ListItem("Rock",500));
+        provisions.add(new ListItem("Wood",300));
+        provisions.add(new ListItem("Iron",200));
+        provisions.add(new ListItem("Gold",100));        
+        provisions.add(new ListItem("B. of Crereals",500));
+        provisions.add(new ListItem("B. of Vegetables",500));
+        provisions.add(new ListItem("B. of Fruits",400));
+        provisions.add(new ListItem("B. of Meat",300));
+        
+        Game.setProvisions(provisions);
     }
 }
