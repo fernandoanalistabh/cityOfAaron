@@ -1,5 +1,6 @@
 package byui.cit260.cityOfAron.view;
 
+import byui.cit260.cityOfAron.control.GameControl;
 import byui.cit260.cityOfAron.model.Game;
 import java.util.Scanner;
 
@@ -75,7 +76,7 @@ public class GameMenuView extends MenuView{
         }
     }
     void viewMap(){
-        
+        GameControl.displayMap(Game.getMap());
     }
     
     void viewList(){

@@ -15,41 +15,70 @@ import java.util.Arrays;
  */
 public class Map implements Serializable{
     private int rowCount;
-    private int colCont;
-    private Location locations[][];
+    private int colCount;
+    private Location[][] locations; 
 
-    public Map() {
+    /**
+    * default Map constructor
+    * Purpose: Set data members to default values
+    * Parameters: none
+    * Returns: none
+    */
+    public Map()  {
     }
+    
+    /**
+    * parameterized Map constructor
+    * Purpose: Sets row and column values
+    * and creates an array of Location objects
+    * Parameters: row count and column count
+    * Returns: none
+    */
+    public Map(int _rows, int _cols)
+    {
+    this.rowCount = _rows;
+    this.colCount = _cols;
+    // create the array of location objects
+    this.locations = new Location[_rows][_cols];
+    }
+
 
     public int getRowCount() {
         return rowCount;
     }
 
-    public void setRowCount(int rowCount) {
-        this.rowCount = rowCount;
+    public int getColCount() {
+        return colCount;
     }
 
-    public int getColCont() {
-        return colCont;
+    /**
+    * The getLocation method
+    * Purpose: returns the location object at the given row and column
+    * Parameters: a row and column
+    * Returns: a Location object
+    */
+    public Location getLocation(int row, int col)
+    {
+    return this.locations[row][col];
     }
 
-    public void setColCont(int colCont) {
-        this.colCont = colCont;
-    }
 
-    public Location[][] getLocations() {
-        return locations;
-    }
-
-    public void setLocations(Location[][] locations) {
-        this.locations = locations;
+    /**
+    * The setLocation method
+    * Purpose: stores a location object at the row and column
+    * Parameters: a row and column, and a reference to a location object
+    * Returns: void
+    */
+    public void setLocation(int row, int col, Location _location)
+    {
+    this.locations[row][col] = _location;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 97 * hash + this.rowCount;
-        hash = 97 * hash + this.colCont;
+        hash = 97 * hash + this.colCount;
         hash = 97 * hash + Arrays.deepHashCode(this.locations);
         return hash;
     }
@@ -69,7 +98,7 @@ public class Map implements Serializable{
         if (this.rowCount != other.rowCount) {
             return false;
         }
-        if (this.colCont != other.colCont) {
+        if (this.colCount != other.colCount) {
             return false;
         }
         if (!Arrays.deepEquals(this.locations, other.locations)) {
@@ -80,7 +109,7 @@ public class Map implements Serializable{
 
     @Override
     public String toString() {
-        return "Map{" + "rowCount=" + rowCount + ", colCont=" + colCont + ", locations=" + locations + '}';
+        return "Map{" + "rowCount=" + rowCount + ", colCont=" + colCount + ", locations=" + locations + '}';
     }
 
 

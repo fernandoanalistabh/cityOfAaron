@@ -14,9 +14,9 @@ import java.util.ArrayList;
  */
 public class Game implements Serializable{
 
-    private Map theMap;
+    private static Map map;
     private Player thePlayer;
-    private CropData cropData;
+    private static CropData cropData;
     private ArrayList<ListItem> animals;
     private ArrayList<ListItem> tools;
     // I turned this variable static so it can be refered without being 
@@ -29,12 +29,12 @@ public class Game implements Serializable{
         setProvisions(new ArrayList<ListItem>());    
     }    
 
-    public Map getTheMap() {
-        return theMap;
+    public static Map getMap() {
+        return map;
     }
 
-    public void setTheMap(Map _theMap) {
-        this.theMap = _theMap;
+    public static void setMap(Map _theMap) {
+        Game.map = _theMap;
     }
 
     public Player getThePlayer() {
@@ -45,12 +45,12 @@ public class Game implements Serializable{
         this.thePlayer = _thePlayer;
     }
 
-    public CropData getCropData() {
+    public static CropData getCropData() {
         return cropData;
     }
 
-    public void setCropData(CropData _cropData) {
-        this.cropData = _cropData;
+    public static void setCropData(CropData _cropData) {
+        Game.cropData = _cropData;
     }
 
     public ArrayList<ListItem> getAnimals() {
@@ -84,7 +84,7 @@ public class Game implements Serializable{
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 83 * hash + Objects.hashCode(this.theMap);
+        hash = 83 * hash + Objects.hashCode(this.map);
         hash = 83 * hash + Objects.hashCode(this.thePlayer);
         hash = 83 * hash + Objects.hashCode(this.cropData);
         hash = 83 * hash + Objects.hashCode(this.animals);
@@ -105,7 +105,7 @@ public class Game implements Serializable{
             return false;
         }
         final Game other = (Game) obj;
-        if (!Objects.equals(this.theMap, other.theMap)) {
+        if (!Objects.equals(this.map, other.map)) {
             return false;
         }
         if (!Objects.equals(this.thePlayer, other.thePlayer)) {
@@ -128,7 +128,7 @@ public class Game implements Serializable{
 
     @Override
     public String toString() {
-        return "Game{" + "theMap=" + theMap + ", thePlayer=" + thePlayer + ", cropData=" + cropData + ", animals=" + animals + ", tools=" + tools + ", provisions=" + provisions + '}';
+        return "Game{" + "theMap=" + map + ", thePlayer=" + thePlayer + ", cropData=" + cropData + ", animals=" + animals + ", tools=" + tools + ", provisions=" + provisions + '}';
     }
 
 }

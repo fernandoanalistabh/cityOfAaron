@@ -125,7 +125,7 @@ public void displayMenuView()
                     String.format("%-17s", i.getName()) + i.getNumber()
             );
         }
-    }
+    }   
     
 //    + listTeam(): void  
     public void listTeam()
