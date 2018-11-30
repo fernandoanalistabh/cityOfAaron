@@ -5,6 +5,7 @@
 * Date last modified: May 2018
 */
 package byui.cit260.cityOfAron.control;
+import byui.cit260.cityOfAron.exceptions.CropException;
 import byui.cit260.cityOfAron.model.CropData;
 import java.util.Random;
 public class CropControl
@@ -67,16 +68,16 @@ public class CropControl
     * Pre-conditions: the price acres to buy must be positive
     * and <= the number of bushels of wheat owned
     */
-    public static int buyLand(int landPrice, int acresToBuy, CropData cropData)
+    public static int buyLand(int landPrice, int acresToBuy, CropData cropData) throws CropException
     {
         int acresOwned = cropData.getAcresOwned();
         int wheatInStore = cropData.getWheatInStore();
         //if acresToBuy < 0, return -1
         if (acresToBuy < 0)
-            return -1;
+            throw new CropException("A negative value was input");
         //if acresToBuy x landPrice > wheatInStore, return -1
         if ((acresToBuy*landPrice)>wheatInStore)
-            return -1;
+            throw new CropException("There is insufficient wheat to buy this much land");
         //acresOwned = acresOwned + acresToBuy
         acresOwned+=acresToBuy;
         cropData.setAcresOwned(acresOwned);

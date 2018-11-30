@@ -2,6 +2,7 @@ package byui.cit260.cityOfAron.view;
 
 import byui.cit260.cityOfAron.model.*;
 import byui.cit260.cityOfAron.control.*;
+import byui.cit260.cityOfAron.exceptions.CropException;
 import java.util.Scanner;
 
 /**
@@ -47,13 +48,29 @@ public class CropView {
         int price = CropControl.calcLandCost();
         // Prompt the user to enter the number of acres to buy
         System.out.format("Land is selling for %d bushels per acre.%n", price);
-        System.out.print("How many acres of land do you wish to buy? ");
+        //System.out.print("How many acres of land do you wish to buy? ");
         // Get the user’s input and save it.
         int toBuy;
-        toBuy = keyboard.nextInt();
+        //toBuy = keyboard.nextInt();
         // Call the buyLand( ) method in the control layer to buy the land
-        CropControl.buyLand(toBuy, price, cropData);
-        
+        //CropControl.buyLand(toBuy, price, cropData);
+        boolean paramsNotOkay;
+        do  
+        {
+            paramsNotOkay = false;
+            System.out.print("\nHow many acres of land do you wish to buy? ");
+            toBuy = keyboard.nextInt();
+            try
+            {
+                CropControl.buyLand(toBuy, price, cropData);
+            }
+            catch(CropException e)
+            {
+                System.out.println("I am sorry master, I cannot do this.");
+                System.out.println(e.getMessage());
+                paramsNotOkay = true;
+            }
+        } while(paramsNotOkay);
         // output how much land we now own
         System.out.format("You now own %d acres of land. ", cropData.getAcresOwned());
     }
