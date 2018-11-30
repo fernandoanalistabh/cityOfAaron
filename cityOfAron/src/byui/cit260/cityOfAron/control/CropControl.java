@@ -26,15 +26,16 @@ public class CropControl
     * Pre-conditions: acres to sell must be positive
     * and <= acresOwned
     */
-    public static int sellLand(int landPrice, int acresToSell, CropData cropData)
+    public static void sellLand(int landPrice, int acresToSell, CropData cropData) throws CropException
     {
             //if acresToSell < 0, return -1
         if (acresToSell < 0)
-            return -1;
+            throw new CropException("You can't sell a negative value of lands.");
             //if acresToSell > acresOwned, return -1
         int acresOwned = cropData.getAcresOwned();
         if (acresToSell > acresOwned)
-            return -1;
+            throw new CropException("You can't sell more lands than you have\n"+
+                    "unless you use a Gemino Curse on them.");
             //acresOwned = acresOwned - acresToSell
         acresOwned -= acresToSell;
         cropData.setAcresOwned(acresOwned);
@@ -42,8 +43,6 @@ public class CropControl
         int wheatInStore = cropData.getWheatInStore();
         wheatInStore += (acresToSell * landPrice);
         cropData.setWheatInStore(wheatInStore);
-            //return acresOwned        
-        return acresOwned;
     }
     
     /**
