@@ -122,10 +122,30 @@ public class CropView {
         System.out.print("How many bushels of grain do you want to give to the people?");
         // Get the user’s input and save it.
         int bushels;
-        bushels = keyboard.nextInt();
-        // Call the feedPeople( ) method in the control layer to feed people
-        // public static int feedPeople(int bushels, CropData cropData){
-        int wheatLeft = CropControl.feedPeople(bushels, cropData);
+        boolean paramsNotOkay;
+        int wheatLeft = 0;
+        do
+        {
+            paramsNotOkay = false;
+            System.out.print("How many acres of land do you wish to sell? ");
+            // Get the user’s input and save it.
+            bushels = keyboard.nextInt();
+            try
+            {
+                // Call the sellLand( ) method in the control layer to sell land
+                // Call the feedPeople( ) method in the control layer to feed people
+                // public static int feedPeople(int bushels, CropData cropData){
+                wheatLeft = CropControl.feedPeople(bushels, cropData);
+             }
+            catch(CropException e)
+            {
+                System.out.println("I am sorry master, but...");
+                System.out.println(e.getMessage());
+                paramsNotOkay = true;
+            }
+        } while(paramsNotOkay);
+        
+ 
         //Display the amount of wheat you have left.
         System.out.format("You now own %d wheat in store. ", wheatLeft);
     }

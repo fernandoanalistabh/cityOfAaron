@@ -151,10 +151,10 @@ public class CropControl
     * Pre-conditions: the number of bushels to feed people must be positive
     * and < wheatInStore
     */
-    public static int feedPeople(int bushels, CropData cropData){
+    public static int feedPeople(int bushels, CropData cropData) throws CropException{
         int wheatInStore = cropData.getWheatInStore();
         if (bushels<0 || bushels>wheatInStore)
-            return -1;
+            throw new CropException("The number of bushels needs to be in the wheat in store.");
         else{
             wheatInStore-=bushels;
             cropData.setWheatForPeople(bushels);
