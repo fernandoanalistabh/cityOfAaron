@@ -89,7 +89,7 @@ public class GameMenuView extends MenuView{
     }
     
     void manageCrops(){
-        
-        CropView.runCropsView();
+        CropView cv = new CropView();
+        cv.runCropsView();
     }
 }

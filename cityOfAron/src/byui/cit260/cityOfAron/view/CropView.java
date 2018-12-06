@@ -26,7 +26,7 @@ public class CropView {
     * Parameters: none
     * Returns: none
     */
-    public static void runCropsView()
+    public void runCropsView()
     {
         // call the buyLandView( ) method
         buyLandView();
@@ -42,7 +42,7 @@ public class CropView {
     * Parameters: none
     * Returns: none
     */
-    public static void buyLandView()
+    public void buyLandView()
     {
         // Get the cost of land for this round.
         int price = CropControl.calcLandCost();
@@ -81,7 +81,7 @@ public class CropView {
     * Parameters: none
     * Returns: none
     */
-    public static void sellLandView(){
+    public void sellLandView(){
         // Get the cost of land for this round.
         int price = CropControl.calcLandCost();
         // Prompt the user to enter the number of acres to sell
@@ -117,7 +117,7 @@ public class CropView {
     * Parameters: none
     * Returns: none
     */
-    public static void feedPeopleView(){        
+    public void feedPeopleView(){        
         // Get the user’s input and save it.
         int bushels;
         boolean paramsNotOkay;
@@ -154,7 +154,7 @@ public class CropView {
     * Parameters: none
     * Returns: none
     */
-    public static void plantCropView(){
+    public void plantCropView(){
         // Prompt the user to enter the number of acres of land to plant
         System.out.print("How many acres of land do you want to plant?");
         // Get the user’s input and save it.
@@ -178,7 +178,7 @@ public class CropView {
     * Parameters: none
     * Returns: none
     */
-    public static void displayCropsReportView(){
+    public void displayCropsReportView(){
         // Display a report about the data
         System.out.println( "Year: "+cropData.getYear()+"\n"+
                             "People who starved: "+cropData.getNumStarved()+"\n"+
