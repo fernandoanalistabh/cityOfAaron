@@ -8,9 +8,9 @@ import java.util.Scanner;
  * @author Fernando
  */
 public class GameMenuView extends MenuView{
-      
-    Game theGame;
-       
+    
+    //Game theGame;
+    
     public GameMenuView() {
         super("\n"+
                   "********************************\n" +
@@ -39,13 +39,13 @@ public class GameMenuView extends MenuView{
         this.max = max;
     }
 
-    public Game getTheGame() {
-        return theGame;
-    }
+    //public Game getTheGame() {
+    //    return theGame;
+    //}
 
-    public void setTheGame(Game theGame) {
-        this.theGame = theGame;
-    }
+    //public void setTheGame(Game theGame) {
+    //    this.theGame = theGame;
+    //}
     
     /**
     *The doAction method
@@ -76,7 +76,7 @@ public class GameMenuView extends MenuView{
         }
     }
     void viewMap(){
-        GameControl.displayMap(Game.getMap());
+        GameControl.displayMap();
     }
     
     void viewList(){
@@ -89,6 +89,7 @@ public class GameMenuView extends MenuView{
     }
     
     void manageCrops(){
+        
         CropView.runCropsView();
     }
 }

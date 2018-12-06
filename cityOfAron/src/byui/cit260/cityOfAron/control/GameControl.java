@@ -8,12 +8,17 @@
 // ==============================================================
 package byui.cit260.cityOfAron.control;
 import byui.cit260.cityOfAron.model.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 /**
  * @author Andre
  */
 public class GameControl {
     
+    static Game game = new Game();
     // size of the Locations array
     private static final int MAX_ROW = 5;
     private static final int MAX_COL = 5;
@@ -21,7 +26,7 @@ public class GameControl {
     public static void createNewGame(String pName)
     {   
         // Create a new Game object.
-        Game game = new Game();
+        game = new Game();
         // Create a new Player object
         Player thePlayer = new Player();
         // Store the name of the player in the Player object
@@ -64,7 +69,7 @@ public class GameControl {
         provisions.add(new ListItem("B. of Fruits",400));
         provisions.add(new ListItem("B. of Meat",300));
         
-        Game.setProvisions(provisions);
+        game.setProvisions(provisions);
     }
     
     // method prologue ….
@@ -84,7 +89,7 @@ public class GameControl {
         theCrops.setOfferingsBushels(300);
         theCrops.setAcresPlanted(1000);
         // Save the cropData in the Game object
-        Game.setCropData(theCrops);
+        game.setCropData(theCrops);
     }
     /**
     * The createMap method
@@ -235,19 +240,56 @@ public class GameControl {
         loc.setSymbol("^^^^");
         theMap.setLocation(4, 2, loc);
         
-        Game.setMap(theMap);
+        game.setMap(theMap);
     }
     
-    public static void displayMap(Map map){
-        for(int i = 0; i < map.getRowCount(); i++)
+    public static void displayMap(){
+        for(int i = 0; i < game.getMap().getRowCount(); i++)
         {
-            for(int j = 0; j < map.getColCount(); j++)
+            for(int j = 0; j < game.getMap().getColCount(); j++)
             {
-                Location loc = map.getLocation(i, j);
+                Location loc = game.getMap().getLocation(i, j);
                 System.out.print(String.format("%-5s",loc.getSymbol()));
             }
             System.out.print("\n");
         }
 
     }
+    public static ArrayList<ListItem> getProv(){
+        return game.getProvisions();
+    }
+    
+    /**
+    * getSavedGame method
+    * Purpose: load a saved game from disk
+    * Parameters: the file path
+    * Returns: none
+    * Side Effect: the game reference in the driver is updated
+    */
+    public static void getSavedGame(String filePath)
+    {
+        
+        try (FileInputStream fips = new FileInputStream(filePath))
+        {
+            ObjectInputStream input = new ObjectInputStream(fips);
+            game = (Game) input.readObject();
+            CityOfAron.setTheGame(game);
+        }
+        catch(Exception e)
+        {
+            System.out.println("There was an error reading the saved game file\n");
+        }
+    }
+    public static void saveGame(String filePath){
+        try (FileOutputStream fips = new FileOutputStream(filePath))
+        {
+            ObjectOutputStream output = new ObjectOutputStream(fips);
+            output.writeObject(CityOfAron.getTheGame());
+        }
+        catch(Exception e)
+        {
+            System.out.println("There was an error reading the saved game file\n");
+        }
+    }
+    
 }

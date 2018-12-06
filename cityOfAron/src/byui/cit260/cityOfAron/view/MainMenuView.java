@@ -8,6 +8,11 @@ import byui.cit260.cityOfAron.control.GameControl;
 import java.util.Objects;
 import java.util.Scanner;
 import byui.cit260.cityOfAron.model.CityOfAron;
+import byui.cit260.cityOfAron.model.Game;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 /**
  * @author Andre 
@@ -90,9 +95,23 @@ public class MainMenuView extends MenuView{
         GameMenuView gmv = new GameMenuView();
         gmv.displayMenu();
     }
+    /**
+    * The startSavedGame method
+    * Purpose: loads a saved game object from disk and start the game
+    * Parameters: none
+    * Returns: none
+    * ===================================
+    */
     public void startSavedGame()
     {
-        System.out.println("\nStart saved game option selected.");
+        // get rid of \n character left in the stream
+        // prompt user and get a file path
+        String filepath = keyboard.next();
+        // call the getSavedGame( ) method in the GameControl class to load the game
+        GameControl.getSavedGame(filepath);
+        // display the game menu for the loaded game
+        GameMenuView gmv = new GameMenuView();
+        gmv.displayMenu();        
     }
     public void displayHelpMenuView()
     {
@@ -103,7 +122,10 @@ public class MainMenuView extends MenuView{
     }
     public void displaySaveGameView()
     {
-        System.out.println("\nSave Game view option selected.");
+        //Game theGame = null;
+        String filePath = keyboard.next();
+        GameControl.saveGame(filePath);
+        System.out.println("Your game was successfully saved!");
     }
 
     

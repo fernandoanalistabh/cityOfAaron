@@ -117,9 +117,7 @@ public class CropView {
     * Parameters: none
     * Returns: none
     */
-    public static void feedPeopleView(){
-        // Prompt the user to enter the number
-        System.out.print("How many bushels of grain do you want to give to the people?");
+    public static void feedPeopleView(){        
         // Get the user’s input and save it.
         int bushels;
         boolean paramsNotOkay;
@@ -127,7 +125,7 @@ public class CropView {
         do
         {
             paramsNotOkay = false;
-            System.out.print("How many acres of land do you wish to sell? ");
+            System.out.print("How many bushels of grain do you want to give to the people?");
             // Get the user’s input and save it.
             bushels = keyboard.nextInt();
             try
@@ -158,7 +156,7 @@ public class CropView {
     */
     public static void plantCropView(){
         // Prompt the user to enter the number of acres of land to plant
-        System.out.print("“How many acres of land do you want to plant?");
+        System.out.print("How many acres of land do you want to plant?");
         // Get the user’s input and save it.
         int landToPlant;
         landToPlant = keyboard.nextInt();

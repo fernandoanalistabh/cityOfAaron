@@ -5,6 +5,7 @@
 * Team members: Andre Matheus, Fernando Santos, Vinicius
 */
 package byui.cit260.cityOfAron.view;
+import byui.cit260.cityOfAron.control.GameControl;
 import byui.cit260.cityOfAron.model.Game;
 import byui.cit260.cityOfAron.model.ListItem;
 import java.util.ArrayList;
@@ -113,9 +114,7 @@ public void displayMenuView()
 //    method to list provitions --L10
     public void listProvisions()
     {   
-        // Obs. I turned some variable/method in Game class static so I could
-        //refer to them here without being instatiated yet
-        ArrayList<ListItem> provList = Game.getProvisions();
+        ArrayList<ListItem> provList = GameControl.getProv();
         System.out.println("\nProvitions in City of Aaron:");
         for (ListItem i : provList){ // Iterate through each item in 
                                      //the provisions list

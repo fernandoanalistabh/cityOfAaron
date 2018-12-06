@@ -14,14 +14,15 @@ import java.util.ArrayList;
  */
 public class Game implements Serializable{
 
-    private static Map map;
+    private Map map;
     private Player thePlayer;
-    private static CropData cropData;
+    private CropData cropData;
     private ArrayList<ListItem> animals;
     private ArrayList<ListItem> tools;
     // I turned this variable static so it can be refered without being 
     //instatiated yet
-    private static ArrayList<ListItem> provisions;
+    private ArrayList<ListItem> provisions;
+    private boolean done = false;
     
     public Game() {
         setAnimals(new ArrayList<ListItem>());
@@ -29,12 +30,12 @@ public class Game implements Serializable{
         setProvisions(new ArrayList<ListItem>());    
     }    
 
-    public static Map getMap() {
+    public Map getMap() {
         return map;
     }
 
-    public static void setMap(Map _theMap) {
-        Game.map = _theMap;
+    public void setMap(Map _theMap) {
+        this.map = _theMap;
     }
 
     public Player getThePlayer() {
@@ -45,12 +46,12 @@ public class Game implements Serializable{
         this.thePlayer = _thePlayer;
     }
 
-    public static CropData getCropData() {
+    public CropData getCropData() {
         return cropData;
     }
 
-    public static void setCropData(CropData _cropData) {
-        Game.cropData = _cropData;
+    public void setCropData(CropData _cropData) {
+        this.cropData = _cropData;
     }
 
     public ArrayList<ListItem> getAnimals() {
@@ -71,14 +72,14 @@ public class Game implements Serializable{
 
     // I turned this method static so it can be refered without being 
     //instatiated yet
-    public static ArrayList<ListItem> getProvisions() {
+    public ArrayList<ListItem> getProvisions() {
         return provisions;
     }
 
     // I turned this method static so it can be refered without being 
     //being instatiated yet
-    public static void setProvisions(ArrayList<ListItem> _provisions) {
-        Game.provisions = _provisions;
+    public void setProvisions(ArrayList<ListItem> _provisions) {
+        this.provisions = _provisions;
     }
 
     @Override
