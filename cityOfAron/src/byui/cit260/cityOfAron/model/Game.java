@@ -19,8 +19,6 @@ public class Game implements Serializable{
     private CropData cropData;
     private ArrayList<ListItem> animals;
     private ArrayList<ListItem> tools;
-    // I turned this variable static so it can be refered without being 
-    //instatiated yet
     private ArrayList<ListItem> provisions;
     private boolean done = false;
     
@@ -70,14 +68,10 @@ public class Game implements Serializable{
         this.tools = _tools;
     }
 
-    // I turned this method static so it can be refered without being 
-    //instatiated yet
     public ArrayList<ListItem> getProvisions() {
         return provisions;
     }
 
-    // I turned this method static so it can be refered without being 
-    //being instatiated yet
     public void setProvisions(ArrayList<ListItem> _provisions) {
         this.provisions = _provisions;
     }

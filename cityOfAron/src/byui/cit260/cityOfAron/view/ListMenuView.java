@@ -101,8 +101,10 @@ public void displayMenuView()
 //    + listAnimals(): void
     public void listAnimals()
     {
-        System.out.println("\nThe animals you have are:...");
-
+        System.out.print("Report's Name: ");
+        String nameFile = keyboard.next();
+        GameControl.animalsReport(nameFile);
+        System.out.print("Report successfully saved.");
     }
     
 //    + listTools(): void

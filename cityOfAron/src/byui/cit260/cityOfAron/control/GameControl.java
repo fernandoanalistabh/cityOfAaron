@@ -8,10 +8,15 @@
 // ==============================================================
 package byui.cit260.cityOfAron.control;
 import byui.cit260.cityOfAron.model.*;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 /**
  * @author Andre
@@ -292,4 +297,21 @@ public class GameControl {
         }
     }
     
+    public static void animalsReport(String nameFile){  
+        try(PrintWriter fw = new PrintWriter("c:\\CIT\\" + nameFile + ".txt")){
+            // cabeçalho 
+            fw.println("Report's Animals");
+            fw.println("Name          Number");
+            
+            for (ListItem animal : game.getAnimals()){
+                fw.write(animal.getName());
+                fw.write(animal.getNumber());
+                fw.println();
+                fw.flush();
+            }
+            fw.close();
+        }catch(IOException ex){
+            ex.printStackTrace();
+        }
+    }
 }
