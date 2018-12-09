@@ -170,7 +170,7 @@ public void displayMenuView()
             }
             in.close();
         } catch(IOException e) {
-            System.out.println("Saving File Error.");
+            System.out.println("Loading File Error.");
         }
     }   
     
