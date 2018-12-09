@@ -40,7 +40,7 @@ public class ListMenuView {
                                         //requirements document, but I though it 
                                         //would be more consistent to add it
                                         //once the other menus have.
-        this.max = 5;
+        this.max = 6;
     }
 
 
