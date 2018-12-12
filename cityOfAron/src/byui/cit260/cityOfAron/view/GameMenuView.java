@@ -86,13 +86,13 @@ public class GameMenuView extends MenuView{
         lmv.displayMenuView();                 
     }
     
-    /** --added L13
+    /**
     * The moveToNewLocation method
     * Purpose: prompt the user for a place and move them to there
     * Parameters: none
     * Returns: none
     */
-    void moveToNewLocation(){
+    void moveToNewLocation(){ // --added L13
         // Define variables for the coordinates
         int col, row;
         // Define maximun values for col and row

@@ -268,23 +268,27 @@ public class GameControl {
         keyList.set(12,loc.getSymbol()+" - hill"); // --added L13
         
         //set the keyList ArayList to the Map.keyLegend ArrayList
-        theMap.setKeyLegend(keyList);
+        theMap.setKeyLegend(keyList); // --added L13
         game.setMap(theMap);
     }
     
     public static void displayMap(){ // -- updated L13
+        //print a header to the map
         System.out.println("      ---  THE  MAP  ---");
         System.out.print(" ");
+        //iterate through columns and print its names
         for(int j = 0; j < game.getMap().getColCount(); j++)
             {
                 System.out.printf("%5s","C"+(j+1));
             }
         System.out.print("\n");
+        //iterate trhough each item in the map to print its symbol
         for(int i = 0; i < game.getMap().getRowCount(); i++)
         {
-            System.out.print("R"+(i+1)+" ");
+            System.out.print("R"+(i+1)+" ");//<-print row name
             for(int j = 0; j < game.getMap().getColCount(); j++)
             {
+                //check and print player location or location symbol
                 if(thePlayer.getRowPos()==i && thePlayer.getColPos()==j){
                     System.out.print(">You ");
                 }else{
@@ -294,8 +298,10 @@ public class GameControl {
             }
             System.out.print("\n");
         }
+        //print a header to the Key legend list
         System.out.println("");
         System.out.println("Key legend:");
+        //iterate through map's keyLegend ArrayList and print it's items
         for(String key : game.getMap().getKeyLegend()){
             System.out.println(key);
         }
@@ -356,13 +362,13 @@ public class GameControl {
         }
     }
     
-    /** --Added L13
+    /** --added L13
     * The toStartingPoint method
     * Purpose: set the player position to the midle of map (starting point)
     * Parameters: Player object
     * Returns: none
     */
-    public static void toStartingPoint(Player _player){
+    public static void toStartingPoint(Player _player){ // --added L13
         _player.setColPos(2);
         _player.setRowPos(2);
     }
