@@ -7,6 +7,7 @@
 package byui.cit260.cityOfAron.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -17,6 +18,7 @@ public class Map implements Serializable{
     private int rowCount;
     private int colCount;
     private Location[][] locations; 
+    private ArrayList<String> keyLegend; // --added L13
 
     /**
     * default Map constructor
@@ -74,6 +76,14 @@ public class Map implements Serializable{
     this.locations[row][col] = _location;
     }
 
+    public ArrayList<String> getKeyLegend() { // --added L13
+        return keyLegend;
+    }
+
+    public void setKeyLegend(ArrayList<String> _keyLegend) { // --added L13
+        this.keyLegend = _keyLegend;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;

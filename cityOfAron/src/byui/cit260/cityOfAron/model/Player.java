@@ -15,8 +15,10 @@ import java.util.ArrayList;
 public class Player implements Serializable{
 
     private String name;
-    
+        
     private ArrayList<Game> games = new ArrayList<Game>();
+    
+    private int colPos, rowPos; // --added L13
     
     
     public Player() {
@@ -36,6 +38,23 @@ public class Player implements Serializable{
     public void setGames(ArrayList<Game> games) {
         this.games = games;
     }
+
+    public int getColPos() { // --L13
+        return colPos;
+    }
+
+    public void setColPos(int _colPos) { // --L13
+        this.colPos = _colPos;
+    }
+
+    public int getRowPos() { // --L13
+        return rowPos;
+    }
+
+    public void setRowPos(int _rowPos) { // --L13
+        this.rowPos = _rowPos;
+    }
+    
     
     
     @Override
