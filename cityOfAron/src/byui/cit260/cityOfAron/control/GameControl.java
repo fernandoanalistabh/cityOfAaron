@@ -23,8 +23,9 @@ import java.util.ArrayList;
  */
 public class GameControl {
     
-    static Game game = new Game();
+    public static Game game = new Game();
     // size of the Locations array
+    public static Player thePlayer = new Player(); //--added L13
     private static final int MAX_ROW = 5;
     private static final int MAX_COL = 5;
     
@@ -33,9 +34,11 @@ public class GameControl {
         // Create a new Game object.
         game = new Game();
         // Create a new Player object
-        Player thePlayer = new Player();
+        thePlayer = new Player();
         // Store the name of the player in the Player object
         thePlayer.setName(pName);
+        // Set player pos to the midle of the map (stating point) --added L13
+        toStartingPoint(thePlayer);
         // Store a reference to the Player object in the Game object
         game.setThePlayer(thePlayer);
         // Create a CropData object
@@ -102,11 +105,17 @@ public class GameControl {
     * Parameters: none
     * Returns: none
     */
-    public static void createMap()
+    public static void createMap() // --updated L13
     {
         // create the Map object,
         // refer to the Map constructor
         Map theMap = new Map(MAX_ROW, MAX_COL);
+        // create an array list --added L13
+        ArrayList<String> keyList = new ArrayList<>();
+        // set its size to 13
+        for(int i = 0;i<13;i++){
+            keyList.add("");
+        }
         
         // create a string that will go in the Location objects
         // that contain the river
@@ -123,6 +132,7 @@ public class GameControl {
         {
         theMap.setLocation(i, 4, loc);
         }
+        keyList.set(4,loc.getSymbol()+" - river"); // --added L13
         
         // define the string for a farm land location
         String farmland = "You are on the fertile banks of the River.\n" +
@@ -133,16 +143,18 @@ public class GameControl {
         loc.setDescription(farmland + "\nOne bushel will plant two acres of wheat.");
         loc.setSymbol("!!!!");
         theMap.setLocation(0, 2, loc);
+        keyList.set(2,loc.getSymbol()+" - farmland"); // --added L13
         
-        String goldmine = "A goldnine. A gorgeous source of richness, and the shiniest\n"
-                     +  " cave you’ve ever seen. Your heart pumps up just by \n"
-                     + "imagining all your people can do with so much money.\n"
-                     + " But be careful, pride can destroy a city as fast as\n"
-                     + " gold can build it.";
+        String goldmine = "You found a goldmine. It's gorgeous source of richness,\n"
+                     + "and the shiniest cave you’ve ever seen. Your heart pumps\n"
+                     + "up just by imagining all your people can do with so much\n"
+                     + "money. But be careful, pride can destroy a city as fast\n"
+                     + "as gold can build it.";
         loc = new Location();
         loc.setDescription(goldmine);
         loc.setSymbol("$$$$");
         theMap.setLocation(0, 0, loc);
+        keyList.set(0,loc.getSymbol()+" - goldmine"); // --added L13
         
         String forest = "You are in the forest, the nature’s masterpiece. \n"
                 + "The birthplace of the most fantastic creatures and a \n"
@@ -158,6 +170,7 @@ public class GameControl {
         theMap.setLocation(1, 2, loc);
         theMap.setLocation(2, 1, loc);
         theMap.setLocation(2, 2, loc);
+        keyList.set(1,loc.getSymbol()+" - forest"); // --added L13
         
         String mountain = "You are in a mountain, the earth’s titan. Huge \n"
                 + "amounts of rock and sand as tall as the far sky. \n"
@@ -168,6 +181,7 @@ public class GameControl {
         loc.setDescription(mountain);
         loc.setSymbol(" /\\ ");
         theMap.setLocation(0, 3, loc);
+        keyList.set(3,loc.getSymbol()+" - mountain"); // --added L13
         
         String valley = "You are on the valley. It is the lowest place in the \n"
                 + "entire region. This place is good for you to plant, \n"
@@ -176,7 +190,8 @@ public class GameControl {
         loc = new Location();
         loc.setDescription(valley);
         loc.setSymbol(" \\/ ");
-        theMap.setLocation(1, 3, loc);        
+        theMap.setLocation(1, 3, loc);
+        keyList.set(6,loc.getSymbol()+" - valley"); // --added L13
         
         String stone = "You are in the stone. It is the most big stone of the \n"
                 + "entire land. You need to take care around this place, \n"
@@ -185,6 +200,7 @@ public class GameControl {
         loc.setDescription(stone);
         loc.setSymbol(" [] ");
         theMap.setLocation(2, 3, loc);
+        keyList.set(7,loc.getSymbol()+" - stone"); // --added L13
         
         String pasture = "You are in the pasture. Besides the grass, there are \n"
                 + "some animals like horse and cows here. Definitely, it \n"
@@ -193,6 +209,7 @@ public class GameControl {
         loc.setDescription(pasture);
         loc.setSymbol(",,,,");
         theMap.setLocation(3, 1, loc);
+        keyList.set(8,loc.getSymbol()+" - pasture"); // --added L13
         
         String castle = "You are in the castle. This castle is the most beautiful \n"
                 + "in the entire region. You find here rich and bountiful \n"
@@ -201,10 +218,11 @@ public class GameControl {
                 + "of the desert in the south";
         loc = new Location();
         loc.setDescription(castle);
-        loc.setSymbol("↑[]↑");
+        loc.setSymbol("^[]^");
         theMap.setLocation(1, 0, loc);
         theMap.setLocation(2, 0, loc);
         theMap.setLocation(3, 0, loc);
+        keyList.set(5,loc.getSymbol()+" - castle"); // --added L13
         
         String lake = "Here is the lake. The lake is a quiet place, calm and \n"
                 + "fresh. The lake is placed in the center of the desert, \n"
@@ -214,6 +232,7 @@ public class GameControl {
         loc.setDescription(lake);
         loc.setSymbol("@@@@");
         theMap.setLocation(3, 2, loc);
+        keyList.set(9,loc.getSymbol()+" - lake"); // --added L13
         
         String swamp = "You arrived in the swamp, could, dark and wilderness. \n"
                 + "The swamp is dangerous because of the mug, you never \n"
@@ -226,6 +245,7 @@ public class GameControl {
         loc.setSymbol("****");
         theMap.setLocation(3, 3, loc);
         theMap.setLocation(4, 3, loc);
+        keyList.set(10,loc.getSymbol()+" - swamp"); // --added L13
         
         String desert = "You are in the desert, wilderness and hostile. The \n"
                 + "desert is really dangerous if you unprepared of \n"
@@ -235,6 +255,7 @@ public class GameControl {
         loc.setSymbol("====");
         theMap.setLocation(4, 0, loc);
         theMap.setLocation(4, 1, loc);
+        keyList.set(11,loc.getSymbol()+" - desert"); // --added L13
         
         String hill = "You are on the Hill, here you can see everything from \n"
                 + "above, and it´s good if you are here to take a rest, \n"
@@ -244,21 +265,41 @@ public class GameControl {
         loc.setDescription(hill);
         loc.setSymbol("^^^^");
         theMap.setLocation(4, 2, loc);
+        keyList.set(12,loc.getSymbol()+" - hill"); // --added L13
         
+        //set the keyList ArayList to the Map.keyLegend ArrayList
+        theMap.setKeyLegend(keyList);
         game.setMap(theMap);
     }
     
-    public static void displayMap(){
+    public static void displayMap(){ // -- updated L13
+        System.out.println("      ---  THE  MAP  ---");
+        System.out.print(" ");
+        for(int j = 0; j < game.getMap().getColCount(); j++)
+            {
+                System.out.printf("%5s","C"+(j+1));
+            }
+        System.out.print("\n");
         for(int i = 0; i < game.getMap().getRowCount(); i++)
         {
+            System.out.print("R"+(i+1)+" ");
             for(int j = 0; j < game.getMap().getColCount(); j++)
             {
-                Location loc = game.getMap().getLocation(i, j);
-                System.out.print(String.format("%-5s",loc.getSymbol()));
+                if(thePlayer.getRowPos()==i && thePlayer.getColPos()==j){
+                    System.out.print(">You ");
+                }else{
+                    Location loc = game.getMap().getLocation(i, j);
+                    System.out.printf("%-5s",loc.getSymbol());
+                }
             }
             System.out.print("\n");
         }
-
+        System.out.println("");
+        System.out.println("Key legend:");
+        for(String key : game.getMap().getKeyLegend()){
+            System.out.println(key);
+        }
+        
     }
     public static ArrayList<ListItem> getProv(){
         return game.getProvisions();
@@ -313,5 +354,16 @@ public class GameControl {
         }catch(IOException ex){
             ex.printStackTrace();
         }
+    }
+    
+    /** --Added L13
+    * The toStartingPoint method
+    * Purpose: set the player position to the midle of map (starting point)
+    * Parameters: Player object
+    * Returns: none
+    */
+    public static void toStartingPoint(Player _player){
+        _player.setColPos(2);
+        _player.setRowPos(2);
     }
 }
