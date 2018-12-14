@@ -32,6 +32,7 @@ public class CropData implements Serializable{
     private Game _game;
 
     public CropData() {
+        year = 0;
     }
 
     public int getYear() {
@@ -170,6 +171,10 @@ public class CropData implements Serializable{
         this._game = _game;
     }
 
+    public void passYear(){
+        setYear(getYear()+1);
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;

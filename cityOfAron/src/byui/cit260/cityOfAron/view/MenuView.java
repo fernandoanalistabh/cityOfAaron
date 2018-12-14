@@ -17,6 +17,7 @@ public abstract class MenuView implements ViewInterface {
     protected final static Scanner keyboard = new Scanner(System.in);
     protected String menu; // this string holds the menu string
     protected int max; // this int holds the max input value
+    protected Boolean GameOver=false;
     
     /**
     * MenuView Constructor
@@ -49,6 +50,11 @@ public abstract class MenuView implements ViewInterface {
             // Perform the desired action
             doAction(menuOption);
             // Determine and display the next view
+            if (getGameOver()){
+                menuOption=max;
+                System.out.println("Game Over! Thanks for having fun!");
+            }
+                
         } while (menuOption != max);
     }
     
@@ -72,5 +78,12 @@ public abstract class MenuView implements ViewInterface {
         // return the value input by the user
         return userInput;
     }
-    
+
+    public Boolean getGameOver() {
+        return GameOver;
+    }
+
+    public void setGameOver(Boolean GameOver) {
+        this.GameOver = GameOver;
+    }
 }

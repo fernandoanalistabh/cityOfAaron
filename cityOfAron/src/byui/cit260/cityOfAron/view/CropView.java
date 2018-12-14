@@ -26,7 +26,7 @@ public class CropView {
     * Parameters: none
     * Returns: none
     */
-    public void runCropsView()
+    public boolean runCropsView()
     {
         // call the buyLandView( ) method
         buyLandView();
@@ -34,6 +34,8 @@ public class CropView {
         feedPeopleView();
         plantCropView();
         displayCropsReportView();
+        CropControl.passYear(cropData);
+        return CropControl.gameEvaluation(cropData);
     }
   
     /**

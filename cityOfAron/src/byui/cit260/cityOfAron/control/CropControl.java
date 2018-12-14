@@ -14,6 +14,7 @@ public class CropControl
     private static final int LAND_BASE = 17;
     private static final int LAND_RANGE = 10;
     private static final int ACRES_PER_BUSHEL = 2;
+    private static final int LAST_YEAR = 10;
     // random number generator
     private static Random random = new Random();
 
@@ -160,5 +161,21 @@ public class CropControl
             cropData.setWheatForPeople(bushels);
         }
         return wheatInStore;
+    }
+    
+    public static void passYear(CropData cropData){
+        cropData.passYear();
+    }
+    
+    public static boolean gameEvaluation(CropData cropData){
+        if (cropData.getYear()==LAST_YEAR){
+            System.out.println("You win! 10 years of leadership.");
+            return true;
+        }
+        if (cropData.getNumStarved()>=(cropData.getPopulation()/2)){
+            System.out.println("You lose! There are too many people starving.");
+            return true;
+        }
+        return false;
     }
 }
